@@ -31,7 +31,7 @@ Web Scraping was performed on the below web pages using BeautifulSoup, Pandas, a
 
 Using MongoDB with Flask templating a new HTML page was created that displays all of the information that was scraped. 
 
-![Mission_to_mars_1.png](Missions_to_Mars/ScreenShots/Mission_to_mars_1.png)
+![Mission_to_mars_1.png](https://github.com/smiti5712/web-scraping-challenge/blob/master/Missions_to_Mars/ScreenShots/Mission_to_mars_1.PNG)
 ![Mission_to_mars_2.png](Missions_to_Mars/ScreenShots/Mission_to_mars_2.png)
 ![Mission_to_mars_3.png](Missions_to_Mars/ScreenShots/Mission_to_mars_3.png)
 
