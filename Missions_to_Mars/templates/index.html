@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission to Mars</title>
+    <!-- Bootstrap CSS https://getbootstrap.com/docs/4.4/getting-started/introduction/-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color:rgb(37, 37, 37); color : white;">
+    <div class="container">
+
+        <!-- Jumbotron Bootstrap -->
+        <div class="jumbotron text-center" style="background-color:black;">
+            <h1 class="display-4">Mission to Mars</h1>
+            <a class="btn btn-primary btn-lg" style="background-color:rgb(75, 29, 29) ; color : white;" href="/scrape"
+                role="button">Scrape New Data</a>
+        </div>
+
+        <!-- One container for latest Mars news -->
+        <div class="container">
+            <h4>Latest Mars News</h4>
+            <h6>{{mars_info.news_title}}</h6>
+            <p style="font-size: 14px;">{{mars_info.news_p}}</p>
+        </div>
+
+        <!-- Single container for Featured Image , current weather and mars facts -->
+        <div class="container">
+            <div class="row">
+                <!-- Featured Image-->
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h4>Featured Mars Image</h4>
+                    <img style="width:100%; height: auto;" src="{{mars_info.featured_image_url}}"
+                        alt="Mars Featured Image">
+                </div>
+
+                <!-- Current Weather -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+
+                    <!-- Card from Bootstrap https://getbootstrap.com/docs/4.4/components/card/#titles-text-and-links -->
+                    <div class="card" style="width: 18rem;">
+                        <div style="background-color:rgb(37, 37, 37);font-size: 13px;" class="card-body">
+                            <h6 class="card-title">Current Weather on Mars</h6>
+                            <p class="card-text">{{mars_info.mars_weather}}</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Mars Facts -->
+                    <br>
+                    <h4>Mars Facts</h4>
+                    <div style="font-size: 13px;">
+                        {{mars_info.mars_facts_html | safe}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mars Hemispheres -->
+        <!-- Grid Card from Bootstrap https://getbootstrap.com/docs/4.4/components/card/#grid-cards -->
+        <h4 style="margin-top: 50px; text-align: center;">Mars Hemispheres</h4>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-md-1">
+            {% for hem in mars_info.hemisphere_image_urls %}
+            <div class="col md-4">
+                <div class="card" style="background-color:rgb(37, 37, 37);">
+                    <img src="{{hem.img_url}}" class="card-img-top" alt="Mars Hemisphere image">
+                    <div class="card-body">
+                        <p class="card-text">{{hem.title}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Bootstrap JS documentation https://getbootstrap.com/docs/4.4/getting-started/introduction/-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>
